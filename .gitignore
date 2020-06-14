@@ -1,0 +1,8 @@
+*.o
+langOCR
+
+# Defualt emacs backup file naming convention
+\#*
+
+moc_*    # QT Early compilation files
+*.stash  # QT cached files
