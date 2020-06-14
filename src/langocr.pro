@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = qtmain
+TARGET = langocr
 INCLUDEPATH += .
 QT += widgets gui
 LIBS += -llept -ltesseract 
