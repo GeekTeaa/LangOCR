@@ -1,5 +1,5 @@
 # LangOCR
-> Quickly screen capture language content for quick dictionary look ups.
+> Screen capture language content for quick dictionary look ups.
 
 This is a prototype for LangOCR, a cross-platform OCR application for
 quick dictionary look-ups during active immersion of non-selectable
@@ -15,29 +15,32 @@ still being developed so the code is in a high level of flux.
 
 This application is intended to supplement active immersion while
 reading in the target
-language. [Yomi-chan](https://foosoft.net/projects/yomichan/) and
+language. 
+
+[Yomi-chan](https://foosoft.net/projects/yomichan/) and
 applications like it are fantastic when the text is selectable, but
 it's difficult to do the same when the text of the medium cannot be
-selected. This is where LangOCR comes in.
+selected. 
 
-LangOCR is a temporary name until I think of something
-better...
+[Kanji-tomo](https://github.com/sakarika/kanjitomo-ocr) satisfied me
+for a long time, but doesn't have a modular dictionary interface. I
+also had to copy my sentence cards into anki by hand. 
+
+This is where LangOCR comes in.
 
 The goals of LangOCR are to do the following.
 
 * Minimize time the user spends looking up entries in a dictionary
 * Minimize time the user spends making N+1 sentence cards for Anki. 
-* Log frequency of the words the user comes across.
 * Utilize a flexible dictionary interface for cross-language
   translations (e.g. EN to JP and JP to JP Translations).
+* Log frequency of the words the user comes across.
 * Leverage the machine learning engine at the core of this application
   for various future applications.
 * Create a low-load intensity architecture that can capture and decode
   text over time. This goal is targeted to capture from games that
   use text as it's main form of communication.
-* This application is designed for Windows, Mac, and Linux. That being
-  said, my all my machines run Linux. In the temporary, Linux will see
-  the most focus as the application takes shape.
+* This application is designed for Windows, Mac, and Linux.
 * Implement a flexible 'rule set' so the user can control how LangOCR
   operates.
 
