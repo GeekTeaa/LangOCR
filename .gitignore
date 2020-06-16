@@ -6,3 +6,6 @@ langOCR
 
 moc_*    # QT Early compilation files
 *.stash  # QT cached files
+
+## I keep my personal notes in org-mode
+*.org 

@@ -1,6 +1,6 @@
 #include <QtWidgets>
 #include "overlay_window.h"
-#include "japanese_ocr_app.h"
+#include "langocr_app.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     // can only be one, and it has to be the highest parent of all the
     // QWidgets.
 
-    JapaneseOcrApp app;
+    LangOcrApp app;
     app.show();
     
     // run the application and return execs() return value/code

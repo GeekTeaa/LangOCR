@@ -1,6 +1,6 @@
 #include <iostream>
 #include <overlay_window.h>
-#include "japanese_ocr_app.h"
+#include "langocr_app.h"
 #include <QRubberBand>
 #include <QMouseEvent>
 #include <QScreen>

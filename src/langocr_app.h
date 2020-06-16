@@ -1,25 +1,20 @@
-#ifndef JAPANESE_OCR_WIDGET_H
-#define JAPANESE_OCR_WIDGET_H
+#ifndef _LANG_OCR_APP_H_
+#define _LANG_OCR_APP_H_
 
 #include <QtWidgets>
 #include <QPixmap>
 #include "overlay_window.h"
 #include "draw_window.h"
 
-
-// namespace Ui {
-// class JapaneseOcrWidget;
-// }
-
 class QPushButton;
 
-class JapaneseOcrApp : public QMainWindow
+class LangOcrApp : public QMainWindow
 {
     Q_OBJECT
     
 public:
-    explicit JapaneseOcrApp(QMainWindow *parent = nullptr);
-    ~JapaneseOcrApp();
+    explicit LangOcrApp(QMainWindow *parent = nullptr);
+    ~LangOcrApp();
 
 signals:
     void captureWindowDone(void);
@@ -37,4 +32,4 @@ private:
     QPushButton *button_;
 };
 
-#endif // JAPANESE_OCR_WIDGET_H
+#endif // _LANG_OCR_APP_H_

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "japanese_ocr_app.h"
+#include "langocr_app.h"
 #include <QPushButton>
 #include <QtWidgets>
 #include <unistd.h>
@@ -7,7 +7,7 @@
 #include <leptonica/allheaders.h>
 #include <cstring>
 
-JapaneseOcrApp::JapaneseOcrApp(QMainWindow *parent):
+LangOcrApp::LangOcrApp(QMainWindow *parent):
     QMainWindow(parent)
 {
     button_ = new QPushButton(QString("Push to draw."), this);
@@ -26,29 +26,29 @@ JapaneseOcrApp::JapaneseOcrApp(QMainWindow *parent):
                      this, SLOT(runTesseract()));
 }
 
-JapaneseOcrApp::~JapaneseOcrApp()
+LangOcrApp::~LangOcrApp()
 {
     return; 
 
 }
 
-void JapaneseOcrApp::onButtonReleased()
+void LangOcrApp::onButtonReleased()
 {
     drawWindow_->show();
     drawWindow_->move(0,0);
 }
 
-void JapaneseOcrApp::prepareToCapture(void)
+void LangOcrApp::prepareToCapture(void)
 {
     // Due to reasons I don't understand, we must delay the capture
     // process or we will capture the rubber band used to indicate
     // where the window will be captured.  I think is is because the
     // QT Main event loop hasn't hidden the rubber band yet.
 
-    QTimer::singleShot(100, this, &JapaneseOcrApp::captureWindow);
+    QTimer::singleShot(100, this, &LangOcrApp::captureWindow);
 }
 
-void JapaneseOcrApp::captureWindow()
+void LangOcrApp::captureWindow()
 { 
     //WId winId = overlay_->winId();
     QScreen *screen = QGuiApplication::primaryScreen();
@@ -67,7 +67,7 @@ void JapaneseOcrApp::captureWindow()
     emit captureWindowDone();
 }
 
-void JapaneseOcrApp::runTesseract(void)
+void LangOcrApp::runTesseract(void)
 {
     char *out;
     tesseract::Orientation orientation;

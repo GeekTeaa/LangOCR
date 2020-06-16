@@ -79,6 +79,11 @@ PR and bug reports should be file on GitHub.
 This code is distributed under the GNU license. See ''LICENSE'' for
 more information.
 
+## Notes
+Inorder for this code to work, you must have a compositor running! You
+will see a big black screen blocking your view. Windows, Mac, and most
+Linux users will not see this issue. 
+
 ## Contributing
 If you want to contribute, please and thank you! While the project is
 in it's early stages, I ask that you contact me before tackling major
