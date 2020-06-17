@@ -1,5 +1,4 @@
 #include <QtWidgets>
-#include "overlay_window.h"
 #include "langocr_app.h"
 
 int main(int argc, char *argv[])

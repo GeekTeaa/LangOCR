@@ -3,33 +3,32 @@
 
 #include <QtWidgets>
 #include <QPixmap>
-#include "overlay_window.h"
+#include "screen_overlay.h"
 #include "draw_window.h"
 
 class QPushButton;
 
 class LangOcrApp : public QMainWindow
 {
-    Q_OBJECT
-    
-public:
-    explicit LangOcrApp(QMainWindow *parent = nullptr);
-    ~LangOcrApp();
+  Q_OBJECT
+  
+ public:
+  explicit LangOcrApp(QMainWindow *parent = nullptr);
+  ~LangOcrApp();
 
-signals:
-    void captureWindowDone(void);
+ signals:
+  void captureWindowDone(void);
                      
-private slots:
-    void onButtonReleased(void);
-    void captureWindow(void);
-    void prepareToCapture(void);
-    void runTesseract(void);
+ private slots:
+  void onButtonReleased(void);
+  void captureWindow(void);
+  void prepareToCapture(void);
+  void runTesseract(void);
 
-    
-private:
-    OverlayWindow *overlay_;
-    DrawWindow *drawWindow_;
-    QPushButton *button_;
+ private:
+  ScreenOverlay *screen_overlay_;
+  DrawWindow *draw_window_;   // 
+  QPushButton *button_;
 };
 
 #endif // _LANG_OCR_APP_H_

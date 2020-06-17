@@ -1,20 +1,16 @@
-#ifndef OVERLAY_WINDOW_H
-#define OVERLAY_WINDOW_H
+#ifndef _SCREEN_OVERLAY_H_
+#define _SCREEN_OVERLAY_H_
 
 #include <QMainWindow>
 #include <QRubberBand>
 
-// namespace Ui {
-// class OverlayWindow;
-// }
-
-class OverlayWindow : public QWidget
+class ScreenOverlay : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit OverlayWindow(QWidget *parent = 0);
-    ~OverlayWindow();
+    explicit ScreenOverlay(QWidget *parent = 0);
+    ~ScreenOverlay();
     QRect getRectangle(void);
     //QRect setRectangle(void);
 
@@ -28,4 +24,4 @@ private:
     QRect rect_;
 };
 
-#endif // OVERLAY_WINDOW_H
+#endif // _SCREEN_OVERLAY_H_
