@@ -39,12 +39,12 @@ ScreenOverlay::~ScreenOverlay()
   return;
 }
 
-QRect ScreenOverlay::getRectangle(void)
+QRect ScreenOverlay::GetRectangle(void)
 {
   return rect_;
 }
 
-void ScreenOverlay::drawRect(QPoint pos, QSize size)
+void ScreenOverlay::DrawRect(QPoint pos, QSize size)
 {
   rect_ = QRect(pos, size);
   this->update();

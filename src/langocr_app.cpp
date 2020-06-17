@@ -12,15 +12,15 @@ LangOcrApp::LangOcrApp(QMainWindow *parent):
 {
   button_         = new QPushButton(QString("Push to draw."), this);
   screen_overlay_ = new ScreenOverlay(this);
-  draw_window_    = new DrawWindow(this);
+  draw_overlay_    = new DrawOverlay(this);
   screen_overlay_->show();
 
   this->setCentralWidget(button_);
 
   QObject::connect(button_, SIGNAL(released()), this, SLOT(onButtonReleased())); 
-  QObject::connect(draw_window_, SIGNAL(newDrawnItem(QPoint, QSize)),
-                   screen_overlay_, SLOT(drawRect(QPoint, QSize)));
-  QObject::connect(draw_window_, SIGNAL(newWindowAdded()),
+  QObject::connect(draw_overlay_, SIGNAL(newDrawnItem(QPoint, QSize)),
+                   screen_overlay_, SLOT(DrawRect(QPoint, QSize)));
+  QObject::connect(draw_overlay_, SIGNAL(newWindowAdded()),
                    this, SLOT(prepareToCapture()));
   QObject::connect(this, SIGNAL(captureWindowDone()),
                    this, SLOT(runTesseract()));
@@ -30,15 +30,15 @@ LangOcrApp::~LangOcrApp()
 {
   delete button_;
   delete screen_overlay_;
-  delete draw_window_;
+  delete draw_overlay_;
   return; 
 }
  
 
 void LangOcrApp::onButtonReleased()
 {
-  draw_window_->show();
-  draw_window_->move(0,0);
+  draw_overlay_->show();
+  draw_overlay_->move(0,0);
 }
 
 void LangOcrApp::prepareToCapture(void)
@@ -55,7 +55,7 @@ void LangOcrApp::captureWindow()
 { 
   //WId winId = overlay_->winId();
   QScreen *screen = QGuiApplication::primaryScreen();
-  QRect rect = screen_overlay_->getRectangle();
+  QRect rect = screen_overlay_->GetRectangle();
   QPixmap pix;
   pix = screen->grabWindow(0,
                            rect.x(),

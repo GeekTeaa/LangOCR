@@ -55,14 +55,14 @@ OBJECTS_DIR   = ./
 SOURCES       = main.cpp \
 		screen_overlay.cpp \
 		langocr_app.cpp \
-		draw_window.cpp moc_draw_window.cpp \
+		draw_overlay.cpp moc_draw_overlay.cpp \
 		moc_screen_overlay.cpp \
 		moc_langocr_app.cpp
 OBJECTS       = main.o \
 		screen_overlay.o \
 		langocr_app.o \
-		draw_window.o \
-		moc_draw_window.o \
+		draw_overlay.o \
+		moc_draw_overlay.o \
 		moc_screen_overlay.o \
 		moc_langocr_app.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -360,12 +360,12 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		langocr.pro draw_window.h \
+		langocr.pro draw_overlay.h \
 		screen_overlay.h \
 		langocr_app.h main.cpp \
 		screen_overlay.cpp \
 		langocr_app.cpp \
-		draw_window.cpp
+		draw_overlay.cpp
 QMAKE_TARGET  = langocr
 DESTDIR       = 
 TARGET        = langocr
@@ -985,8 +985,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents draw_window.h screen_overlay.h langocr_app.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp screen_overlay.cpp langocr_app.cpp draw_window.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents draw_overlay.h screen_overlay.h langocr_app.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp screen_overlay.cpp langocr_app.cpp draw_overlay.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1018,13 +1018,13 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_draw_window.cpp moc_screen_overlay.cpp moc_langocr_app.cpp
+compiler_moc_header_make_all: moc_draw_overlay.cpp moc_screen_overlay.cpp moc_langocr_app.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_draw_window.cpp moc_screen_overlay.cpp moc_langocr_app.cpp
-moc_draw_window.cpp: draw_window.h \
+	-$(DEL_FILE) moc_draw_overlay.cpp moc_screen_overlay.cpp moc_langocr_app.cpp
+moc_draw_overlay.cpp: draw_overlay.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/src/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/src -I/home/skye/dev/langOCR/src -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include draw_window.h -o moc_draw_window.cpp
+	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/src/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/src -I/home/skye/dev/langOCR/src -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include draw_overlay.h -o moc_draw_overlay.cpp
 
 moc_screen_overlay.cpp: screen_overlay.h \
 		moc_predefs.h \
@@ -1032,7 +1032,7 @@ moc_screen_overlay.cpp: screen_overlay.h \
 	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/src/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/src -I/home/skye/dev/langOCR/src -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include screen_overlay.h -o moc_screen_overlay.cpp
 
 moc_langocr_app.cpp: langocr_app.h \
-		draw_window.h \
+		screen_overlay.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/src/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/src -I/home/skye/dev/langOCR/src -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include langocr_app.h -o moc_langocr_app.cpp
@@ -1054,22 +1054,22 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 ####### Compile
 
 main.o: main.cpp langocr_app.h \
-		draw_window.h
+		screen_overlay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
-screen_overlay.o: screen_overlay.cpp langocr_app.h \
-		draw_window.h
+screen_overlay.o: screen_overlay.cpp screen_overlay.h \
+		langocr_app.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o screen_overlay.o screen_overlay.cpp
 
 langocr_app.o: langocr_app.cpp langocr_app.h \
-		draw_window.h
+		screen_overlay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o langocr_app.o langocr_app.cpp
 
-draw_window.o: draw_window.cpp draw_window.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o draw_window.o draw_window.cpp
+draw_overlay.o: draw_overlay.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o draw_overlay.o draw_overlay.cpp
 
-moc_draw_window.o: moc_draw_window.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_draw_window.o moc_draw_window.cpp
+moc_draw_overlay.o: moc_draw_overlay.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_draw_overlay.o moc_draw_overlay.cpp
 
 moc_screen_overlay.o: moc_screen_overlay.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_screen_overlay.o moc_screen_overlay.cpp

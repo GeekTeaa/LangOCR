@@ -6,22 +6,23 @@
 
 class ScreenOverlay : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 
-public:
-    explicit ScreenOverlay(QWidget *parent = 0);
-    ~ScreenOverlay();
-    QRect getRectangle(void);
-    //QRect setRectangle(void);
+  public:
+  explicit ScreenOverlay(QWidget *parent = 0);
+  ~ScreenOverlay();
+  QRect GetRectangle(void);
+  //QRect setRectangle(void);
 
-public slots:
-    void drawRect(QPoint pos, QSize size);
+ public slots:
+  void DrawRect(QPoint pos, QSize size);
     
-protected:
-    void paintEvent(QPaintEvent *event);
+ protected:
+  // Special Qt Function
+  void paintEvent(QPaintEvent *event);
 
-private:
-    QRect rect_;
+ private:
+  QRect rect_;
 };
 
 #endif // _SCREEN_OVERLAY_H_

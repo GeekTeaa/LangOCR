@@ -4,7 +4,7 @@
 #include <QtWidgets>
 #include <QPixmap>
 #include "screen_overlay.h"
-#include "draw_window.h"
+#include "draw_overlay.h"
 
 class QPushButton;
 
@@ -27,7 +27,7 @@ class LangOcrApp : public QMainWindow
 
  private:
   ScreenOverlay *screen_overlay_;
-  DrawWindow *draw_window_;   // 
+  DrawOverlay *draw_overlay_;   // 
   QPushButton *button_;
 };
 
