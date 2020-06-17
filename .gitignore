@@ -1,11 +1,21 @@
 *.o
-langOCR
+langocr
+
+# If we add jpg, add delibrately.
+*.jpg    
 
 # Defualt emacs backup file naming convention
-\#*
+*\#*
 
-moc_*    # QT Early compilation files
-*.stash  # QT cached files
+
+##################################################
+# Qt Generated files
+##################################################
+# QT Early compilation files
+moc_*
+
+# QT cached files
+*.stash  
 
 ## I keep my personal notes in org-mode
 *.org 
