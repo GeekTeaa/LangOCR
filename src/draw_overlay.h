@@ -14,8 +14,8 @@ class DrawOverlay : public QWidget
   QPoint origin;
 
  signals:
-  void newDrawnItem(QPoint pos, QSize size);
-  void newWindowAdded(void);
+  void NewDrawnItem(QPoint pos, QSize size);
+  void NewWindowAdded(void);
     
  protected:
   void mousePressEvent(QMouseEvent *e);

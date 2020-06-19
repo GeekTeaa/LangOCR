@@ -65,9 +65,9 @@ void DrawOverlay::mouseReleaseEvent(QMouseEvent *event)
   QCoreApplication::processEvents();
     
   // signal that we finished drawing a box.
-  emit newDrawnItem(rubber_band_->pos(), rubber_band_->size());
+  emit NewDrawnItem(rubber_band_->pos(), rubber_band_->size());
 
   // This is temporary while I figure out a better way to do
   // this. This not modular, but will trigger a screen capture
-  emit newWindowAdded();
+  emit NewWindowAdded();
 }

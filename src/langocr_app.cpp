@@ -12,7 +12,7 @@ LangOcrApp::LangOcrApp(QMainWindow *parent):
 {
   button_         = new QPushButton(QString("Push to draw."), this);
   screen_overlay_ = new ScreenOverlay(this);
-  draw_overlay_    = new DrawOverlay(this);
+  draw_overlay_   = new DrawOverlay(this);
   screen_overlay_->show();
 
   this->setCentralWidget(button_);
