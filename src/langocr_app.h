@@ -8,8 +8,7 @@
 
 class QPushButton;
 
-class LangOcrApp : public QMainWindow
-{
+class LangOcrApp : public QMainWindow {
   Q_OBJECT
   
  public:

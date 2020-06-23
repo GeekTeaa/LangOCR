@@ -4,8 +4,7 @@
 #include <QMainWindow>
 #include <QRubberBand>
 
-class DrawOverlay : public QWidget
-{
+class DrawOverlay : public QWidget {
   Q_OBJECT
 
  public:

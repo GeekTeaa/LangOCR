@@ -8,8 +8,7 @@
 #include <cstring>
 
 LangOcrApp::LangOcrApp(QMainWindow *parent):
-    QMainWindow(parent)
-{
+    QMainWindow(parent) {
   button_         = new QPushButton(QString("Push to draw."), this);
   screen_overlay_ = new ScreenOverlay(this);
   draw_overlay_   = new DrawOverlay(this);
@@ -26,8 +25,7 @@ LangOcrApp::LangOcrApp(QMainWindow *parent):
                    this, SLOT(runTesseract()));
 }
 
-LangOcrApp::~LangOcrApp()
-{
+LangOcrApp::~LangOcrApp() {
   delete button_;
   delete screen_overlay_;
   delete draw_overlay_;
@@ -35,14 +33,12 @@ LangOcrApp::~LangOcrApp()
 }
  
 
-void LangOcrApp::onButtonReleased()
-{
+void LangOcrApp::onButtonReleased() {    
   draw_overlay_->show();
   draw_overlay_->move(0,0);
 }
 
-void LangOcrApp::prepareToCapture(void)
-{
+void LangOcrApp::prepareToCapture(void) {    
   // Due to reasons I don't understand, we must delay the capture
   // process or we will capture the rubber band used to indicate
   // where the window will be captured.  I think is is because the
@@ -51,8 +47,7 @@ void LangOcrApp::prepareToCapture(void)
   QTimer::singleShot(100, this, &LangOcrApp::captureWindow);
 }
 
-void LangOcrApp::captureWindow()
-{ 
+void LangOcrApp::captureWindow() {    
   //WId winId = overlay_->winId();
   QScreen *screen = QGuiApplication::primaryScreen();
   QRect rect = screen_overlay_->GetRectangle();
@@ -70,8 +65,7 @@ void LangOcrApp::captureWindow()
   emit captureWindowDone();
 }
 
-void LangOcrApp::runTesseract(void)
-{
+void LangOcrApp::runTesseract(void) {    
   char *out;
   tesseract::Orientation orientation;
   tesseract::WritingDirection direction;
@@ -80,8 +74,7 @@ void LangOcrApp::runTesseract(void)
     
   tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
     
-  if(api->Init(NULL,"jpn"))
-  {
+  if(api->Init(NULL,"jpn")) {
     fprintf(stderr, "Failed to initalize tesseract. \n");
     exit(1);
   }

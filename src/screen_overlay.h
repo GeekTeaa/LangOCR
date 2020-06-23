@@ -4,8 +4,7 @@
 #include <QMainWindow>
 #include <QRubberBand>
 
-class ScreenOverlay : public QWidget
-{
+class ScreenOverlay : public QWidget {
   Q_OBJECT
 
   public:
