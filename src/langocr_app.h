@@ -5,6 +5,7 @@
 #include <QPixmap>
 #include "screen_overlay.h"
 #include "draw_overlay.h"
+#include "tesseract_ocr_engine.h"
 
 class QPushButton;
 
@@ -22,12 +23,12 @@ class LangOcrApp : public QMainWindow {
   void onButtonReleased(void);
   void captureWindow(void);
   void prepareToCapture(void);
-  void runTesseract(void);
 
  private:
   ScreenOverlay *screen_overlay_;
-  DrawOverlay *draw_overlay_;   // 
+  DrawOverlay *draw_overlay_;   
   QPushButton *button_;
+  OcrEngine *ocr_engine_;
 };
 
 #endif // _LANG_OCR_APP_H_

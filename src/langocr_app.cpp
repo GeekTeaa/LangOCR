@@ -6,29 +6,32 @@
 #include <tesseract/baseapi.h>
 #include <leptonica/allheaders.h>
 #include <cstring>
+#include "tesseract_ocr_engine.h"
 
 LangOcrApp::LangOcrApp(QMainWindow *parent):
     QMainWindow(parent) {
   button_         = new QPushButton(QString("Push to draw."), this);
   screen_overlay_ = new ScreenOverlay(this);
   draw_overlay_   = new DrawOverlay(this);
+  ocr_engine_     = new TesseractOcrEngine();
   screen_overlay_->show();
 
   this->setCentralWidget(button_);
 
   QObject::connect(button_, SIGNAL(released()), this, SLOT(onButtonReleased())); 
-  QObject::connect(draw_overlay_, SIGNAL(newDrawnItem(QPoint, QSize)),
+  QObject::connect(draw_overlay_, SIGNAL(NewDrawnItem(QPoint, QSize)),
                    screen_overlay_, SLOT(DrawRect(QPoint, QSize)));
-  QObject::connect(draw_overlay_, SIGNAL(newWindowAdded()),
+  QObject::connect(draw_overlay_, SIGNAL(NewWindowAdded()),
                    this, SLOT(prepareToCapture()));
   QObject::connect(this, SIGNAL(captureWindowDone()),
-                   this, SLOT(runTesseract()));
+                   ocr_engine_, SLOT(DecodeImageIntoText()));
 }
 
 LangOcrApp::~LangOcrApp() {
   delete button_;
   delete screen_overlay_;
   delete draw_overlay_;
+  delete ocr_engine_;
   return; 
 }
  
@@ -48,7 +51,6 @@ void LangOcrApp::prepareToCapture(void) {
 }
 
 void LangOcrApp::captureWindow() {    
-  //WId winId = overlay_->winId();
   QScreen *screen = QGuiApplication::primaryScreen();
   QRect rect = screen_overlay_->GetRectangle();
   QPixmap pix;
@@ -63,41 +65,4 @@ void LangOcrApp::captureWindow() {
     std::cout << "Failure to save capture!" << std::endl;
 
   emit captureWindowDone();
-}
-
-void LangOcrApp::runTesseract(void) {    
-  char *out;
-  tesseract::Orientation orientation;
-  tesseract::WritingDirection direction;
-  tesseract::TextlineOrder order;
-  float deskew_angle;
-    
-  tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
-    
-  if(api->Init(NULL,"jpn")) {
-    fprintf(stderr, "Failed to initalize tesseract. \n");
-    exit(1);
-  }
-
-  // This is using the leptonica library
-  Pix *image = pixRead("myPic.jpg");
-    
-  // Configure API 
-  api->SetImage(image);
-  //api->SetPageSegMode(tesseract::PSM_SINGLE_BLOCK_VERT_TEXT);
-
-  tesseract::PageIterator* it =  api->AnalyseLayout();
-  //it->Orientation(&orientation, &direction, &order, &deskew_angle);
-  //printf("Orientation: %d;\nWritingDirection: %d\nTextlineOrder: %d\n" 
-  //       "Deskew angle: %.4f\n",
-  //       orientation, direction, order, deskew_angle);
-
-  printf("Got here!\n");
-  out = api->GetUTF8Text();
-  printf("Also got here!\n");
-  printf("OCR Output: \n%s", out);
-  api->End();
-  delete api;
-  delete [] out;
-  pixDestroy(&image);
 }

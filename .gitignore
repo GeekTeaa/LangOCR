@@ -7,6 +7,9 @@ langocr
 # Defualt emacs backup file naming convention
 *\#*
 
+#ignore emacs buffers that accidently get saved
+\**\*
+
 
 ##################################################
 # Qt Generated files
