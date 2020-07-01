@@ -15,9 +15,6 @@ class LangOcrApp : public QMainWindow {
  public:
   explicit LangOcrApp(QMainWindow *parent = nullptr);
   ~LangOcrApp();
-
- signals:
-  void captureWindowDone(void);
                      
  private slots:
   void onButtonReleased(void);

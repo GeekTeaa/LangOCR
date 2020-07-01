@@ -16,5 +16,5 @@ LIBS += -llept -ltesseract
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-HEADERS += draw_overlay.h screen_overlay.h langocr_app.h text_image.h ocr_engine.h tesseract_ocr_engine.h 
-SOURCES += main.cpp screen_overlay.cpp langocr_app.cpp draw_overlay.cpp ocr_engine.cpp tesseract_ocr_engine.cpp
+HEADERS += draw_overlay.h screen_overlay.h langocr_app.h text_image.h ocr_engine.h tesseract_ocr_engine.h decoded_text.h
+SOURCES += main.cpp screen_overlay.cpp langocr_app.cpp draw_overlay.cpp ocr_engine.cpp tesseract_ocr_engine.cpp decoded_text.cpp 

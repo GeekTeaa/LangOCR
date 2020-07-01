@@ -3,15 +3,26 @@
 
 #include "ocr_engine.h"
 
+// TesseractOcrEngine : Using Teseract-Ocr API to decode images into text
+//
+// Implements the abstract class OcrEngine.
+//
+// Example:
+//  DecodedText my_text;
+//  TextImage   my_image = GetTextImage();
+//  OcrEngine *my_engine = new TesseractOcrEngine();
+//
+//  my_text = my_engine->DecodeImageIntoText(my_image);
+
 class TesseractOcrEngine : public OcrEngine {
 
  public :
   TesseractOcrEngine();
   ~TesseractOcrEngine();
+  DecodedText DecodeImageIntoText(TextImage image) override;
 
- public slots:
-  //std::string DecodeImageIntoText(TextImage image) override;
-  void DecodeImageIntoText(void) override;
+ protected :
+  void Destroy(void) override;
   
  private:
   tesseract::TessBaseAPI *api;

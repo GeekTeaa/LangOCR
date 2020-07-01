@@ -10,22 +10,22 @@ TesseractOcrEngine::TesseractOcrEngine(void) {
   }
 }
 
+// Note: The Destroy() function is called when this object is
+// deconstructed.
 TesseractOcrEngine::~TesseractOcrEngine(void) {
+  this->Destroy();
+}
+
+void TesseractOcrEngine::Destroy(void) {
   api->End();
   delete api; 
 }
 
-// std::string TesseractOcrEngine::DecodeImageIntoText(TextImage image) {
-void TesseractOcrEngine::DecodeImageIntoText(void) {
-  char *out;    
-  // This is using the leptonica library
-  Pix *image = pixRead("myPic.jpg");
 
-  // Configure API 
-  api->SetImage(image);
+DecodedText TesseractOcrEngine::DecodeImageIntoText(TextImage image) {
+  std::string out;    
 
+  api->SetImage(static_cast<Pix*>(&image));
   out = api->GetUTF8Text();
-  std::cout << out << std::endl;
-  delete out;
-  delete image; 
+  return DecodedText(out);
 }
