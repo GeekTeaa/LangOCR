@@ -10,7 +10,7 @@
 // Example:
 //  DecodedText my_text;
 //  TextImage   my_image = GetTextImage();
-//  OcrEngine *my_engine = new TesseractOcrEngine();
+//  OcrEngine  *my_engine = new TesseractOcrEngine();
 //
 //  my_text = my_engine->DecodeImageIntoText(my_image);
 
@@ -25,7 +25,7 @@ class TesseractOcrEngine : public OcrEngine {
   void Destroy(void) override;
   
  private:
-  tesseract::TessBaseAPI *api;
+  tesseract::TessBaseAPI *tesseract_api;
 };
 
 #endif //  _TESSERACT_OCR_ENGINE_H_

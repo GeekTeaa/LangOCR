@@ -16,12 +16,15 @@
 // implementation of the OcrEngine is expected to change radically at
 // a later point.
 //
-// Example
-// OcrEngine *o = new DerivedOcrEngine();
-// ...
-// delete o;
+// A derived class must be used for when using this class. 
 //
-// Because of this 
+// Example:
+//   OcrEngine *engine = new DerivedOcrEngine();
+//   TextImage image = GetImageOfText();
+//   DecodedText decoded_text;
+//
+//   decoded_text = engine->DecodeImageIntoText(image);
+//   ...
 class OcrEngine {
  public:
   virtual ~OcrEngine(void);

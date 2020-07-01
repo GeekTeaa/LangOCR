@@ -1,7 +1,7 @@
 #include "decoded_text.h"
 
-DecodedText::DecodedText(std::string InputText) {
-  this->std_string_ = InputText;
+DecodedText::DecodedText(std::string input_text) {
+  this->std_string_ = input_text;
 }
 
 DecodedText::~DecodedText() {

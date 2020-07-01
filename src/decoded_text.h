@@ -8,7 +8,7 @@
 // Text that is 'Decoded' contains UTF-8 data. 
 class DecodedText {
  public:
-  DecodedText(std::string InputText);
+  DecodedText(std::string input_text);
   ~DecodedText();
   std::string GetCString(void);
 
