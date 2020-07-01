@@ -8,8 +8,7 @@
 #include <QPainter>
 
 ScreenOverlay::ScreenOverlay(QWidget *parent):
-    QWidget(parent)
-{
+    QWidget(parent) {
   QScreen *screen = QGuiApplication::primaryScreen();
 
   // The ScreenOverlay is a transparent, non-clickable widget that's
@@ -34,24 +33,20 @@ ScreenOverlay::ScreenOverlay(QWidget *parent):
   this->move(0,0);
 }
 
-ScreenOverlay::~ScreenOverlay()
-{
+ScreenOverlay::~ScreenOverlay() {
   return;
 }
 
-QRect ScreenOverlay::GetRectangle(void)
-{
+QRect ScreenOverlay::GetRectangle(void) {
   return rect_;
 }
 
-void ScreenOverlay::DrawRect(QPoint pos, QSize size)
-{
+void ScreenOverlay::DrawRect(QPoint pos, QSize size) {
   rect_ = QRect(pos, size);
   this->update();
 }
 
-void ScreenOverlay::paintEvent(QPaintEvent *event)
-{
+void ScreenOverlay::paintEvent(QPaintEvent *event) {
   (void) event;
   QPainter painter(this);
   painter.setRenderHint(QPainter::Antialiasing);

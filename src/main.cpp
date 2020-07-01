@@ -1,8 +1,7 @@
 #include <QtWidgets>
 #include "langocr_app.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     // Creates an instance of QApplication
     QApplication a(argc, argv);
 

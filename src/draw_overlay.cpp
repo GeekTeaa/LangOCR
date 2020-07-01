@@ -6,8 +6,8 @@
 #include <QGuiApplication>
 
 DrawOverlay::DrawOverlay(QWidget *parent):
-    QWidget(parent)
-{
+    QWidget(parent) { 
+    
   QScreen *screen = QGuiApplication::primaryScreen();
 
   // The OverlayWindow is a transparent, non-clickable widget that's
@@ -28,30 +28,24 @@ DrawOverlay::DrawOverlay(QWidget *parent):
   rubber_band_ = new QRubberBand(QRubberBand::Rectangle, this);
 }
 
-DrawOverlay::~DrawOverlay()
-{
+DrawOverlay::~DrawOverlay() {
   delete rubber_band_;
 }
 
-void DrawOverlay::mousePressEvent(QMouseEvent *event)
-{
+void DrawOverlay::mousePressEvent(QMouseEvent *event) {
   origin = event->pos();
-  if (!rubber_band_)
-  {
+  if (!rubber_band_) 
     rubber_band_ = new QRubberBand(QRubberBand::Rectangle, this);
-  }
-    
+
   rubber_band_->setGeometry(QRect(origin, QSize()));
   rubber_band_->show();
 }
 
-void DrawOverlay::mouseMoveEvent(QMouseEvent *event)
-{
+void DrawOverlay::mouseMoveEvent(QMouseEvent *event) {    
   rubber_band_->setGeometry(QRect(origin, event->pos()).normalized());
 }
 
-void DrawOverlay::mouseReleaseEvent(QMouseEvent *event)
-{
+void DrawOverlay::mouseReleaseEvent(QMouseEvent *event) {
   // Remove an annoying warning. 
   (void) event;
 
