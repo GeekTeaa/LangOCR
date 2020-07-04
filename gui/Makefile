@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = langocr1.0.0
-DISTDIR = /home/skye/dev/langOCR/src/.tmp/langocr1.0.0
+DISTDIR = /home/skye/dev/langOCR/gui/.tmp/langocr1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) -llept -ltesseract /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so -lGL -lpthread   
@@ -55,19 +55,13 @@ OBJECTS_DIR   = ./
 SOURCES       = main.cpp \
 		screen_overlay.cpp \
 		langocr_app.cpp \
-		draw_overlay.cpp \
-		ocr_engine.cpp \
-		tesseract_ocr_engine.cpp \
-		decoded_text.cpp moc_draw_overlay.cpp \
+		draw_overlay.cpp moc_draw_overlay.cpp \
 		moc_screen_overlay.cpp \
 		moc_langocr_app.cpp
 OBJECTS       = main.o \
 		screen_overlay.o \
 		langocr_app.o \
 		draw_overlay.o \
-		ocr_engine.o \
-		tesseract_ocr_engine.o \
-		decoded_text.o \
 		moc_draw_overlay.o \
 		moc_screen_overlay.o \
 		moc_langocr_app.o
@@ -368,17 +362,10 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
 		langocr.pro draw_overlay.h \
 		screen_overlay.h \
-		langocr_app.h \
-		text_image.h \
-		ocr_engine.h \
-		tesseract_ocr_engine.h \
-		decoded_text.h main.cpp \
+		langocr_app.h main.cpp \
 		screen_overlay.cpp \
 		langocr_app.cpp \
-		draw_overlay.cpp \
-		ocr_engine.cpp \
-		tesseract_ocr_engine.cpp \
-		decoded_text.cpp
+		draw_overlay.cpp
 QMAKE_TARGET  = langocr
 DESTDIR       = 
 TARGET        = langocr
@@ -998,8 +985,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents draw_overlay.h screen_overlay.h langocr_app.h text_image.h ocr_engine.h tesseract_ocr_engine.h decoded_text.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp screen_overlay.cpp langocr_app.cpp draw_overlay.cpp ocr_engine.cpp tesseract_ocr_engine.cpp decoded_text.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents draw_overlay.h screen_overlay.h langocr_app.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp screen_overlay.cpp langocr_app.cpp draw_overlay.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1037,23 +1024,19 @@ compiler_moc_header_clean:
 moc_draw_overlay.cpp: draw_overlay.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/src/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/src -I/home/skye/dev/langOCR/src -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include draw_overlay.h -o moc_draw_overlay.cpp
+	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/gui/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/gui -I/home/skye/dev/langOCR/gui -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include draw_overlay.h -o moc_draw_overlay.cpp
 
 moc_screen_overlay.cpp: screen_overlay.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/src/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/src -I/home/skye/dev/langOCR/src -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include screen_overlay.h -o moc_screen_overlay.cpp
+	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/gui/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/gui -I/home/skye/dev/langOCR/gui -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include screen_overlay.h -o moc_screen_overlay.cpp
 
 moc_langocr_app.cpp: langocr_app.h \
 		screen_overlay.h \
 		draw_overlay.h \
-		tesseract_ocr_engine.h \
-		ocr_engine.h \
-		text_image.h \
-		decoded_text.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/src/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/src -I/home/skye/dev/langOCR/src -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include langocr_app.h -o moc_langocr_app.cpp
+	/usr/bin/moc $(DEFINES) --include /home/skye/dev/langOCR/gui/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/skye/dev/langOCR/gui -I/home/skye/dev/langOCR/gui -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.3.0 -I/usr/include/c++/9.3.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.3.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed -I/usr/include langocr_app.h -o moc_langocr_app.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1073,47 +1056,21 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 
 main.o: main.cpp langocr_app.h \
 		screen_overlay.h \
-		draw_overlay.h \
-		tesseract_ocr_engine.h \
-		ocr_engine.h \
-		text_image.h \
-		decoded_text.h
+		draw_overlay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 screen_overlay.o: screen_overlay.cpp screen_overlay.h \
 		langocr_app.h \
-		draw_overlay.h \
-		tesseract_ocr_engine.h \
-		ocr_engine.h \
-		text_image.h \
-		decoded_text.h
+		draw_overlay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o screen_overlay.o screen_overlay.cpp
 
 langocr_app.o: langocr_app.cpp langocr_app.h \
 		screen_overlay.h \
-		draw_overlay.h \
-		tesseract_ocr_engine.h \
-		ocr_engine.h \
-		text_image.h \
-		decoded_text.h
+		draw_overlay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o langocr_app.o langocr_app.cpp
 
 draw_overlay.o: draw_overlay.cpp draw_overlay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o draw_overlay.o draw_overlay.cpp
-
-ocr_engine.o: ocr_engine.cpp ocr_engine.h \
-		text_image.h \
-		decoded_text.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ocr_engine.o ocr_engine.cpp
-
-tesseract_ocr_engine.o: tesseract_ocr_engine.cpp tesseract_ocr_engine.h \
-		ocr_engine.h \
-		text_image.h \
-		decoded_text.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tesseract_ocr_engine.o tesseract_ocr_engine.cpp
-
-decoded_text.o: decoded_text.cpp decoded_text.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o decoded_text.o decoded_text.cpp
 
 moc_draw_overlay.o: moc_draw_overlay.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_draw_overlay.o moc_draw_overlay.cpp
