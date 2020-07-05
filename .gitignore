@@ -1,7 +1,7 @@
 # Ignore all compiled images
 *.o
 langocr
-ocrserver
+langocr-server
 
 ##################################################
 # Generic Project Ignores
@@ -30,5 +30,5 @@ moc_*
 ##################################################
 # OcrServer Ignores
 ##################################################
-## Logger.cpp temporary output file .
+## Logger.cpp temporary output file 
 log.txt 
