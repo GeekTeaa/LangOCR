@@ -1,7 +1,7 @@
 CC = g++
-SRC = $(wildcard *.cpp) ../lib/log.cpp
-IDIR = -I. -I../../lib/src/casablanca/Release/include/ -I..
-LDDIRS = -L../../lib/
+SRC = $(wildcard *.cpp) $(wildcard ../lib/*.cpp) 
+IDIR = -I. -I.. -I$(HOME)/dev/include/
+LDDIRS = -L$(HOME)/dev/lib/
 LDFLAGS += -lboost_system -lcrypto -lssl -ltesseract -lcpprest
 
 langocr-server: 
@@ -9,4 +9,4 @@ langocr-server:
 
 .PHONY: clean
 clean:
-	rm -f $(OBJ) ocrserver
+	rm -f *.o langocr-server

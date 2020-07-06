@@ -45,26 +45,44 @@ The goals of LangOCR are to do the following.
   operates.
 
 ## Installation
+### Packages
 Until I have time to test on multiple platforms, I'm going to have to
 assume that developers interested on contributing can figure out the
 nitty-gritty of getting the packages they need. The following packages
-are installed on my system.
+are installed on my system. 
 
+### General Use Packages
 * g++ (Arch Linux 9.3.0-1) 9.3.0
 * GNU Make 4.3
+
+### For Compiling the GUI
 * QMake version 3.1
 * Qt version 5.14.2
+
+### For Compiling the Ocr Server
 * tesseract 4.1.1
 * leptonica-1.79.0
+* cpprestsdk-2.10.16 
+
+### Makefile Convention
+Until the system switches to a CMake build style, Make will do. I
+compiled cpprestsdk from source and linked against it using my system's
+personal convention for source compiled libraries.
+
+#### Libraries
+Dynamic libraries go in `$HOME/dev/lib`
+
+#### Include
+Include path is `$HOME/dev/include`
+
+This will need to be updated for your system so you can compile the
+Ocr Server. 
 
 ## Coding Style
 Please follow [Google C++ Coding
-Style](https://google.github.io/styleguide/cppguide.html). All PRs
-should adhere to Google coding style.
+Style](https://google.github.io/styleguide/cppguide.html).
 
-There is an emphasis on readability and modularity. As the project
-develops, it is realistic that major aspects of the code base will be
-interchanged.
+Coding style emphasizes readability and modularity over performance.
 
 ## Contact
 You can contact me through my twitter, by github, or by email. Email
