@@ -1,8 +1,8 @@
 #include <iostream>
 #include <screen_overlay.h>
 #include "langocr_app.h"
-#include <QRubberBand>
-#include <QMouseEvent>
+#include <QtWidgets/QRubberBand>
+#include <QtWidgets/QMouseEvent>
 #include <QScreen>
 #include <QGuiApplication>
 #include <QPainter>

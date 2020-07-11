@@ -45,6 +45,12 @@ The goals of LangOCR are to do the following.
   operates.
 
 ## Installation
+TODO Update this description to have complete list of instructions instructions.
+
+To install packages via Conan, use:
+
+``conan install . --build=qt``
+
 Until I have time to test on multiple platforms, I'm going to have to
 assume that developers interested on contributing can figure out the
 nitty-gritty of getting the packages they need. The following packages

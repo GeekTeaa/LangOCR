@@ -1,8 +1,8 @@
 #ifndef DRAW_WINDOW_H
 #define DRAW_WINDOW_H
 
-#include <QMainWindow>
-#include <QRubberBand>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QRubberBand>
 
 class DrawOverlay : public QWidget {
   Q_OBJECT

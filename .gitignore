@@ -21,4 +21,24 @@ moc_*
 *.stash  
 
 ## I keep my personal notes in org-mode
-*.org 
+*.org
+
+# For the Conan packages
+packages/
+
+# Ignore CLion files
+.idea
+
+# CLion will automatically setup a venv for Python, which can be ignored
+venv/
+
+# Temp files from the debug build
+cmake-build-debug/
+
+# conan install . side effects
+/graph_info.json
+/conaninfo.txt
+/conanbuildinfo.txt
+/conanbuildinfo.json
+/conan_imports_manifest.txt
+/conan.lock

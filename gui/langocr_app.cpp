@@ -1,7 +1,8 @@
 #include <iostream>
 #include "langocr_app.h"
-#include <QPushButton>
-#include <QtWidgets>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QtWidgets>
+// TODO - download https://github.com/robinrowe/libunistd via conanfile.py, for Windows only, to allow this to compile.
 #include <unistd.h>
 #include <tesseract/baseapi.h>
 #include <leptonica/allheaders.h>

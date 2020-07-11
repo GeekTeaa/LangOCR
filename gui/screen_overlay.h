@@ -1,8 +1,8 @@
 #ifndef _SCREEN_OVERLAY_H_
 #define _SCREEN_OVERLAY_H_
 
-#include <QMainWindow>
-#include <QRubberBand>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QRubberBand>
 
 class ScreenOverlay : public QWidget {
   Q_OBJECT

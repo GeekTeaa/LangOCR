@@ -1,9 +1,9 @@
 #include <iostream>
 #include "draw_overlay.h"
-#include <QRubberBand>
-#include <QMouseEvent>
-#include <QScreen>
-#include <QGuiApplication>
+#include <QtWidgets/QRubberBand>
+#include <QtGui//QMouseEvent>
+#include <QtGui/QScreen>
+#include <QtGui/QGuiApplication>
 
 DrawOverlay::DrawOverlay(QWidget *parent):
     QWidget(parent) { 
