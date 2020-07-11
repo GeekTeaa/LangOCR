@@ -5,12 +5,15 @@
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 #include <syslog.h>
 
 static void ForkAndTerminateParent(void);
 static void SetSessionId(void);
 static void UpdateProgramPermissions(int);
-static void CloseAllOpenFileDescriptors(char *);
+static void CloseAllOpenFileDescriptors(void);
+static void OpenStdInOutAndErrorToDevNull(void);
+static void ChangeDirectoryTo(const char *);
 
 // The process outlined in this function for daemonization of a
 // process is standard practice for creating Daemons in a Linux
@@ -69,7 +72,7 @@ static void SetSessionId(void) {
   if (setsid() < 0) exit(EXIT_FAILURE);
 }
 
-static void UpdateProgramPermissions(int usr_perissions) {
+static void UpdateProgramPermissions(int usr_permissions) {
   umask(usr_permissions);
 }
 
@@ -79,7 +82,7 @@ static void CloseAllOpenFileDescriptors(void) {
   }
 }
 
-static ChangeDirectoryTo(char *dir) {
+static void ChangeDirectoryTo(const char *dir) {
   chdir(dir);
 }
 
@@ -92,3 +95,4 @@ static void OpenStdInOutAndErrorToDevNull(void) {
   if (dup2(STDIN_FILENO, STDOUT_FILENO) != STDOUT_FILENO) exit(EXIT_FAILURE);
   if (dup2(STDIN_FILENO, STDERR_FILENO) != STDERR_FILENO) exit(EXIT_FAILURE);
 }
+

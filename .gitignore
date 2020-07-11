@@ -1,7 +1,7 @@
 # Ignore all compiled images
 *.o
 langocr
-langocr-server
+langocrd
 
 ##################################################
 # Generic Project Ignores

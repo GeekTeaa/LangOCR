@@ -9,4 +9,4 @@ langocrd:
 
 .PHONY: clean
 clean:
-	rm -f *.o langocr-server
+	rm -f *.o langocrd
