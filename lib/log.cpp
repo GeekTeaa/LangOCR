@@ -16,14 +16,6 @@ sys::Log::~Log() {
   closelog();
 }
 
-void Fatal(const char *format, ...) {
-  char buffer[kMaximumBufferSize];
-  va_list args;
-  va_start (args, format);
-  vsyslog (LOG_EMERG, format, args);
-  va_end (args);
-}
-
 void sys::Log::Critical(const char *format, ...) {
   char buffer[kMaximumBufferSize];
   va_list args;
@@ -45,6 +37,14 @@ void sys::Log::Warning(const char *format, ...) {
   va_list args;
   va_start (args, format);
   vsyslog (LOG_WARNING, format, args);
+  va_end (args);
+}
+
+void Notice(const char *format, ...) {
+  char buffer[kMaximumBufferSize];
+  va_list args;
+  va_start (args, format);
+  vsyslog (LOG_NOTICE, format, args);
   va_end (args);
 }
 

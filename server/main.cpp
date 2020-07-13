@@ -5,6 +5,8 @@
 
 static void StartOcrServer(void);
 
+// TODO create a Windows version of daemonize_process.h. MacOS is
+// POSIX compliant, so what is currently implemented should work .
 int main(int argc, char *argv[]) {
   // Upon failure, the program exits before we start the OCR Server.
   MakeProcessIntoDaemon();

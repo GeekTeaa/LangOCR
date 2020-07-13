@@ -7,10 +7,10 @@ class Log {
  public:
   Log(void);
   ~Log(void);
-  void Fatal(const char *format, ...);
   void Critical(const char *format, ...);
   void Error(const char *format, ...);
   void Warning(const char *format, ...);
+  void Notice(const char *format, ...);
   void Info(const char *format, ...);
   void Debug(const char *format, ...);
 };

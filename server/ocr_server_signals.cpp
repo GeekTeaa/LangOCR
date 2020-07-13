@@ -13,9 +13,9 @@ static void HandleHangupSignal(int signum);
 // e.x. SignalHandler.addSignalResponse(SIGHUP, someFunctionPointer);
 
 static signals::Signal all_signals[] = {
-  {.sig = SIGHUP, .func = HandleSegmentationFaultSignal},
-  {.sig = SIGINT, .func = HandleInterruptSignal},
-  {.sig = SIGSEGV , .func = HandleHangupSignal}
+  {.sig = SIGHUP,   .func = HandleSegmentationFaultSignal},
+  {.sig = SIGINT,   .func = HandleInterruptSignal},
+  {.sig = SIGSEGV,  .func = HandleHangupSignal}
 };
 
 const int kSizeOfSignalList = (sizeof(all_signals)/sizeof(all_signals[0]));
