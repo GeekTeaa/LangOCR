@@ -1,8 +1,13 @@
+# Ignore all compiled images
 *.o
 langocr
+langocrd
 
-# If we add jpg, add delibrately.
-*.jpg    
+##################################################
+# Generic Project Ignores
+##################################################
+## I keep my personal notes in org-mode
+*.org 
 
 # Defualt emacs backup file naming convention
 *\#*
@@ -10,9 +15,11 @@ langocr
 #ignore emacs buffers that accidently get saved
 \**\*
 
+# If we add jpg, add delibrately.
+*.jpg    
 
 ##################################################
-# Qt Generated files
+# LangOCR Ignores
 ##################################################
 # QT Early compilation files
 moc_*
@@ -20,5 +27,8 @@ moc_*
 # QT cached files
 *.stash  
 
-## I keep my personal notes in org-mode
-*.org 
+##################################################
+# OcrServer Ignores
+##################################################
+## Logger.cpp temporary output file 
+log.txt 

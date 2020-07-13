@@ -6,14 +6,12 @@
 #include <tesseract/baseapi.h>
 #include <leptonica/allheaders.h>
 #include <cstring>
-#include "tesseract_ocr_engine.h"
 
 LangOcrApp::LangOcrApp(QMainWindow *parent):
     QMainWindow(parent) {
   button_         = new QPushButton(QString("Push to draw."), this);
   screen_overlay_ = new ScreenOverlay(this);
   draw_overlay_   = new DrawOverlay(this);
-  ocr_engine_     = new TesseractOcrEngine();
   screen_overlay_->show();
 
   this->setCentralWidget(button_);
@@ -29,7 +27,6 @@ LangOcrApp::~LangOcrApp() {
   delete button_;
   delete screen_overlay_;
   delete draw_overlay_;
-  delete ocr_engine_;
   return; 
 }
  
@@ -62,9 +59,4 @@ void LangOcrApp::captureWindow() {
   // OCR engine is extracted to an OCR Server. 
   if(!pix.save(QString("myPic.jpg"), "jpg", 100))
     std::cout << "Failure to save capture!" << std::endl;
-
-  // This is using the leptonica library
-  TextImage *image = static_cast<TextImage*>(pixRead("myPic.jpg"));
-  DecodedText output = ocr_engine_->DecodeImageIntoText(*image);
-  std::cout << output.GetCString() << std::endl;
 }
