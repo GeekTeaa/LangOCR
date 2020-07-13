@@ -6,5 +6,5 @@
 void ocrserver::OcrServer::StartServer(void) {
   sys::Log log;
   log.Info("Starting OCR Server\r\n");
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  std::this_thread::sleep_for(std::chrono::seconds(60));
 }
