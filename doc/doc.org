@@ -1,0 +1,35 @@
+* High level architecture 
+  The OCR Server is HTTP server modeled for RESTful design using JSON
+  as it's primary method for communicating with clients. 
+** Terminology
+*** Image
+    The raw data that makes up an image. 
+*** Command
+    Contains all the metadata required to handle an incoming request
+    appropriately excluding the image data.
+** Requirements
+*** The OCR Server shall authenticate users before meaningful transfer can occur. 
+    An API key shall be send given a POST request by the client. That
+    key will be required on all exchanges between the server and said
+    clients. Otherwise, the server will respond with error 401
+    (unauthorized).
+*** The server shall be RESTful
+    This is aimed to enforce simplicity in the protocol, and to allow
+    simply scaling of the server as load requirements are not
+    addressable at this stage.
+*** The server should accept an image encoded in plain text. 
+    This is to keep the protocol approachable by people who are
+    wanting to interact with the OCR server.
+*** Image shall include the command in the same request. 
+    In interest in maintain the REST API structure, the server must be
+    able to accept the image data in the same request that contains
+    the command. The command will tell the server how to handle the
+    incoming data.
+*** The image shall be in format PNG or JPEG. The format shall be defined as part of the command. 
+** Response Types
+*** Incoming Data Corrupted 
+*** No Text Found in Image
+** Command Types
+*** Identify the Regions of text in an image.
+*** Decode the text from the image
+*** Language Detection
