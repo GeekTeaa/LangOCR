@@ -3,7 +3,7 @@
 #include <iostream>
 
 TesseractOcrEngine::TesseractOcrEngine(void) {
-  api = new tesseract::TessBaseAPI();
+    api = new tesseract::TessBaseAPI();
   if(api->Init(NULL,"jpn")) {
     fprintf(stderr, "Failed to initalize tesseract. \n");
     exit(1);

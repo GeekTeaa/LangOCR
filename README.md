@@ -52,8 +52,15 @@ First, add the bincrafters remote for Conan:
 ``conan remote add  bincrafters https://api.bintray.com/conan/bincrafters/public-conan``
 
 To install packages via Conan, use:
+* ``conan install .``
+* If you have issues with QT on Windows, use:
+    * ``conan install . --build=qt``
+* If you have issues with linking to openjpeg on Linux, use:
+    * ``conan install . --build=openjpeg``
 
-``conan install . --build=qt``
+To build the project, use:
+
+``conan build .``
 
 Until I have time to test on multiple platforms, I'm going to have to
 assume that developers interested on contributing can figure out the

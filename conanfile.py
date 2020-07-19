@@ -1,14 +1,15 @@
-from conans import ConanFile, tools
+from conans import ConanFile, CMake, tools
 
 class LangOcrConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     requires = "qt/5.14.2@bincrafters/stable", "tesseract/4.1.1", "leptonica/1.79.0", "zstd/1.4.5"
-    generators = "json"
+    generators = "cmake", "cmake_find_package"
 
-    def imports(self):
-        self.copy("*", src="@includedirs", dst="packages/include")
-        self.copy("*", src="@libdirs", dst="packages/lib")
-        self.copy("*", src="@bindirs", dst="packages/bin")
-        self.copy("*", src="@resdirs", dst="packages/res")
+
+    def build(self):
+        cmake = CMake(self)
+        cmake.configure()
+        cmake.build()
+
 
 
