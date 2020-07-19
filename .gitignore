@@ -34,11 +34,20 @@ venv/
 
 # Temp files from the debug build
 cmake-build-debug/
+build/
+LangOCR_autogen/
+CMakeFiles/
 
 # conan install . side effects
-/graph_info.json
-/conaninfo.txt
-/conanbuildinfo.txt
-/conanbuildinfo.json
-/conan_imports_manifest.txt
-/conan.lock
+graph_info.json
+conaninfo.txt
+conanbuildinfo.txt
+conanbuildinfo.json
+conan_imports_manifest.txt
+conan.lock
+
+Find*.cmake
+CMakeCache.txt
+conanbuildinfo.cmake
+cmake_install.cmake
+Makefile
