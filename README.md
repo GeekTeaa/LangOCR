@@ -45,8 +45,6 @@ The goals of LangOCR are to do the following.
   operates.
 
 ## Installation
-TODO Update this description to have complete list of instructions instructions.
-
 First, add the bincrafters remote for Conan:
 
 ``conan remote add  bincrafters https://api.bintray.com/conan/bincrafters/public-conan``
