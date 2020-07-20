@@ -11,5 +11,3 @@ class LangOcrConan(ConanFile):
         cmake.configure()
         cmake.build()
 
-
-

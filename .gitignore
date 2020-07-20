@@ -33,8 +33,9 @@ packages/
 venv/
 
 # Temp files from the debug build
-cmake-build-debug/
 build/
+bin/
+cmake-build-debug/
 LangOCR_autogen/
 CMakeFiles/
 
