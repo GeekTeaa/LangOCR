@@ -45,18 +45,20 @@ The goals of LangOCR are to do the following.
   operates.
 
 ## Installation
-First, add the bincrafters remote for Conan:
+This project makes use of the Conan package manager for C++. To find instructions to install it for your system, go here: https://conan.io/downloads.html.
+
+As a first step, add the bincrafters remote for Conan:
 
 ``conan remote add  bincrafters https://api.bintray.com/conan/bincrafters/public-conan``
 
 To install packages via Conan, use:
-* ``conan install .``
-* If you have issues with QT on Windows, use:
-    * ``conan install . --build=qt``
+* ``conan install . --build=missing``
 * If you have issues with linking to openjpeg on Linux, use:
     * ``conan install . --build=openjpeg``
+* If there are still issues, check out this document on build policies: https://docs.conan.io/en/latest/mastering/policies.html
+    * The nuclear approach to build all dependencies from source is ``conan install . --build``
 
-To build the project, use:
+To compile and link the project, use:
 
 ``conan build .``
 

@@ -7,6 +7,7 @@ class LangOcrConan(ConanFile):
     build_folder = "build"
 
     def build(self):
+        self.build_folder = "build"
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
