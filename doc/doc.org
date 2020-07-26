@@ -1,0 +1,71 @@
+* LangOCR Technical Specification
+** Front
+*** Author: Skylar Scott
+*** Created On: <2020-07-24 Fri>
+** Introduction
+*** Overview
+    LangOCR is developed in line with the Mass Immersion Approach (MIA)
+    methodologies for studying a secondary language via immersion based
+    learning. Immersion occurs either through Reading or Listening in
+    the target learning, LangOCR aims to enable users a time-efficient
+    method for quick word lockup and sentence mining of visual content
+    that is not selectable. 
+*** Glossary 
+*** Background Information
+*** Goals
+**** Quick Dictionary Look-up
+**** Ease of sentence mining
+**** Access to Pitch Information w/ Sound
+**** Example Sentences. 
+**** Monolingual Transition 
+     LangOCR will also provide itself as a tool for easing learners into
+     the monolingual transition, a notably important and difficult step
+     of the MIA process.
+**** Monitor Word Frequency and Medium
+**** Ease of obtaining user corrections for re-training
+**** Statistic Refinement via User Data 
+*** Non-goals 
+*** Future Goals
+**** Mimic or support Yomi-chan
+*** Requirements (Needs Re-evaluation )
+**** The OCR Server shall authenticate users before meaningful transfer can occur. 
+     An API key shall be send given a POST request by the client. That
+     key will be required on all exchanges between the server and said
+     clients. Otherwise, the server will respond with error 401
+     (unauthorized).
+**** The server shall be RESTful
+     This is aimed to enforce simplicity in the protocol, and to allow
+     simply scaling of the server as load requirements are not
+     addressable at this stage.
+**** The server should accept an image encoded in plain text. 
+     This is to keep the protocol approachable by people who are
+     wanting to interact with the OCR server.
+**** Image shall include the command in the same request. 
+     In interest in maintain the REST API structure, the server must be
+     able to accept the image data in the same request that contains
+     the command. The command will tell the server how to handle the
+     incoming data.
+**** The image shall be in format PNG or JPEG. The format shall be defined as part of the command. 
+*** Assumptions
+**** Anki
+     Sentences shall be directly mined to Anki
+**** Anki-connect
+** Solutions
+*** Existing Solutions
+*** Proposed Design
+**** Architecture Description
+***** Gui Design Description
+      (Insert Lots of Pictures Here)
+***** OCR Server
+***** Anki Support (if needed)
+**** Software Dependencies
+***** Qt
+*** API Specification
+**** Command Types
+***** Identify the Regions of text in an image.
+***** Decode the text from the image
+***** Language Detection
+**** Response Types
+***** Incoming Data Corrupted 
+***** No Text Found in Image
+*** Error Handling and Notification
