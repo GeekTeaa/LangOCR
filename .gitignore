@@ -16,7 +16,10 @@ langocrd
 \**\*
 
 # If we add jpg, add delibrately.
-*.jpg    
+*.jpg
+
+## I periodically use tmp for moving files around
+*tmp/
 
 ##################################################
 # LangOCR Ignores

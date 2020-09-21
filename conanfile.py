@@ -6,7 +6,7 @@ import glob
 class LangOcrConan(ConanFile):
     build_requires = "cmake/3.17.3"
     settings = "os", "compiler", "build_type", "arch"
-    requires = "qt/5.14.2@bincrafters/stable", "tesseract/4.1.1", "leptonica/1.79.0", "zstd/1.4.5"
+    requires = "qt/5.14.2@bincrafters/stable", "tesseract/4.1.1", "leptonica/1.79.0", "zstd/1.4.5", "toml11/3.5.0"
     generators = "cmake", "cmake_find_package"
     build_folder = "build"
 

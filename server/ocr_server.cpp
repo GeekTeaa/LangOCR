@@ -1,9 +1,14 @@
-#include <thread>
-#include <chrono>
+#include "server_config.hpp"
+// #include "uwebsocket_server.hpp"
 #include "lib/log.hpp"
 #include "ocr_server.hpp"
 
+using sys;
+//using uwebsocket::http;
+
 void ocrserver::OcrServer::StartServer(void) {
-  sys::Log log;
+  Log log;
+  //Server server;
   log.Notice("Starting OCR Server\r\n");
+  //server.Start();
 }
