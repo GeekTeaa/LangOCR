@@ -25,7 +25,7 @@ class TesseractOcrEngine : public OcrEngine {
   void Destroy(void) override;
   
  private:
-  tesseract::TessBaseAPI *tesseract_api;
+  tesseract::TessBaseAPI *api;
 };
 
 #endif //  _TESSERACT_OCR_ENGINE_H_

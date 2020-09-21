@@ -1,11 +1,11 @@
 #include <iostream>
 #include <screen_overlay.h>
 #include "langocr_app.h"
-#include <QRubberBand>
-#include <QMouseEvent>
-#include <QScreen>
-#include <QGuiApplication>
-#include <QPainter>
+#include <QtWidgets/QRubberBand>
+#include <QtGui/QMouseEvent>
+#include <QtGui/QScreen>
+#include <QtGui/QGuiApplication>
+#include <QtGui/QPainter>
 
 ScreenOverlay::ScreenOverlay(QWidget *parent):
     QWidget(parent) {

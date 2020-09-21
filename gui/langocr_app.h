@@ -1,8 +1,8 @@
 #ifndef _LANG_OCR_APP_H_
 #define _LANG_OCR_APP_H_
 
-#include <QtWidgets>
-#include <QPixmap>
+#include <QtWidgets/QtWidgets>
+#include <QtGui/QPixmap>
 #include "screen_overlay.h"
 #include "draw_overlay.h"
 
