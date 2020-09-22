@@ -1,9 +1,9 @@
-#include "server_config.hpp"
+//#include "server_config.hpp"
 // #include "uwebsocket_server.hpp"
 #include "lib/log.hpp"
 #include "ocr_server.hpp"
 
-using sys;
+using namespace sys;
 //using uwebsocket::http;
 
 void ocrserver::OcrServer::StartServer(void) {

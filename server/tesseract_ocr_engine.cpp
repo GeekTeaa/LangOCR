@@ -3,8 +3,8 @@
 #include <iostream>
 
 TesseractOcrEngine::TesseractOcrEngine(void) {
-  tesseract_api = new tesseract::TessBaseAPI();
-  if(tesseract_api->Init(NULL,"jpn")) {
+  api = new tesseract::TessBaseAPI();
+  if(api->Init(NULL,"jpn")) {
     fprintf(stderr, "Failed to initalize tesseract. \n");
     exit(1);
   }
@@ -17,15 +17,15 @@ TesseractOcrEngine::~TesseractOcrEngine(void) {
 }
 
 void TesseractOcrEngine::Destroy(void) {
-  tesseract_api->End();
-  delete tesseract_api; 
+  api->End();
+  delete api; 
 }
 
 
 DecodedText TesseractOcrEngine::DecodeImageIntoText(TextImage image) {
   std::string out;    
 
-  tesseract_api->SetImage(static_cast<Pix*>(&image));
-  out = tesseract_api->GetUTF8Text();
+  api->SetImage(static_cast<Pix*>(&image));
+  out = api->GetUTF8Text();
   return DecodedText(out);
 }
