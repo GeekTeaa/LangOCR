@@ -11,10 +11,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR})
 
 file(GLOB GUI_SRC_FILES gui/*.cpp)
-file(GLOB SERVER_SRC_CPP_FILES server/*.cpp)
+file(GLOB SERVER_SRC_FILES server/*.c*)
 file(GLOB LIB_SRC_FILES lib/*.cpp)
 add_executable(LangOCR ${GUI_SRC_FILES} ${LIB_SRC_FILES})
-add_executable(langocrd ${SERVER_SRC_FILES} ${LIB_SRC_FILES})
+add_executable(LangOCRd ${SERVER_SRC_FILES} ${LIB_SRC_FILES})
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
@@ -26,9 +26,9 @@ include_directories(.)
 target_compile_options(LangOCR PRIVATE -fPIC)
 target_link_libraries(LangOCR Qt5::Widgets ${CONAN_LIBS})
 
-target_compile_options(langocrd PRIVATE -fPIC)
+target_compile_options(LangOCRd PRIVATE -fPIC)
 
-# I shouldn't need to add 'archive', it should be in ${CONAN_LIBS} and
+# I shouldn't need to add lib 'archive', it should be in ${CONAN_LIBS} and
 # part of the conan recipt. But, its not...
-target_link_libraries(langocrd ${CONAN_LIBS} archive)
+target_link_libraries(LangOCRd ${CONAN_LIBS} archive)
 

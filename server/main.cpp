@@ -2,21 +2,26 @@
 #include "daemonize_process.h"
 #include "ocr_server.hpp"
 #include "ocr_server_signals.hpp"
+#include "server_config.hpp"
 
+const std::string kDefaultConfigFile = "~/proj/langOCR/server/.config";
 static void StartOcrServer(void);
 
-// TODO create a Windows version of daemonize_process.h. MacOS is
-// POSIX compliant, so what is currently implemented should work .
 int main(int argc, char *argv[]) {
-  signals::SignalInitializer signals; 
-  // Upon failure, the program exits before we start the OCR Server.
-  MakeProcessIntoDaemon();
-  signals.SetUpSignalHandling();
-  StartOcrServer();
-  exit(EXIT_SUCCESS);
+  Port port(10);
+  ConfigParam par;
+  printf("Port size = %d\n", port.size_);
+  printf("ConfigParam size = %d\n", par.size_);
+  
+  //signals::SignalInitializer signals; 
+  //MakeProcessIntoDaemon();
+  //signals.SetUpSignalHandling();
+  //StartOcrServer();
+  //exit(EXIT_SUCCESS);
 }
 
 static void StartOcrServer(void) {
-  ocrserver::OcrServer ocr; 
+  OcrServer ocr;
+  ocr.LoadConfigFile(kDefaultConfigFile);
   ocr.StartServer(); // We should never exit this function
 }
