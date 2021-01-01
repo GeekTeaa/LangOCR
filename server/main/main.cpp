@@ -4,20 +4,15 @@
 #include "ocr_server_signals.hpp"
 #include "server_config.hpp"
 
-const std::string kDefaultConfigFile = "~/proj/langOCR/server/.config";
+const std::string kDefaultConfigFile = "/home/skyes/repo/langocr/server/tests/toml_ex.toml";
 static void StartOcrServer(void);
 
 int main(int argc, char *argv[]) {
-  Port port(10);
-  ConfigParam par;
-  printf("Port size = %d\n", port.size_);
-  printf("ConfigParam size = %d\n", par.size_);
-  
-  //signals::SignalInitializer signals; 
+  signals::SignalInitializer signals; 
   //MakeProcessIntoDaemon();
   //signals.SetUpSignalHandling();
-  //StartOcrServer();
-  //exit(EXIT_SUCCESS);
+  StartOcrServer();
+  exit(EXIT_SUCCESS);
 }
 
 static void StartOcrServer(void) {

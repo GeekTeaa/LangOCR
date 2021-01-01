@@ -45,7 +45,16 @@ The goals of LangOCR are to do the following.
   operates.
 
 ## Installation
-This project makes use of the Conan package manager for C++. To find instructions to install it for your system, go here: https://conan.io/downloads.html.
+This project makes use of the Conan package manager for C++. To find
+instructions to install it for your system, go here:
+https://conan.io/downloads.html.
+
+In addition, you will need cmake to compile the system. Developers are
+trust to be able download the appropiate packages for their
+system. Build instructions for independent operating systems will
+created at a later point for completeness sake.
+
+## Library Installation with Conan
 
 As a first step, add the bincrafters remote for Conan:
 

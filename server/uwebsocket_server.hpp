@@ -8,18 +8,13 @@
 
 #include "server_config.hpp"
 
-namespace http {
-namespace uwebsocket {
-
 class Server {
  public:
   Server();
   ~Server();
   void Start(void);
+ private:
+  void LoadDefaultParameters(void);
 };
-
-
-}  // uwebsocket
-}  // http
 
 #endif /* UWEBSOCKET_SERVER_H */

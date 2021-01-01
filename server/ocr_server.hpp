@@ -10,8 +10,7 @@
 #define _OCRSERVER_OCR_SERVER_H_
 
 #include "uwebsocket_server.hpp"
-
-using namespace http::uwebsocket;
+#include "config_file.hpp"
 
 class OcrServer {
  public:
@@ -21,7 +20,7 @@ class OcrServer {
   ServerConfig* LoadConfigFile(std::string file_location); 
  private:
   Server *server_;
-  ServerConfig *config_;
+  ConfigFile *config_;
 };
 
 #endif 
