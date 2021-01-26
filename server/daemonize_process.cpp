@@ -50,7 +50,7 @@ void MakeProcessIntoDaemon(void) {
   // By default, a process has stdin, stdout, and stderr open in a
   // linux system. Since a daemon is not associated with a terminal,
   // these file descriptors should be closed so they are not
-  // accidentally written to. (e.x. printf writes to stdout)
+  // accidentally written to. (e.x. printf/cout writes to stdout)
   CloseAllOpenFileDescriptors();
 
   // Lastly, open the standard stdin, stdout, and stderr (0, 1, and 2)

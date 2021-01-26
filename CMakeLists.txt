@@ -13,6 +13,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR})
 ## Library source files
 file(GLOB LIB_SRC_FILES lib/*.cpp)
 include_directories(${CONAN_INCLUDE_DIRS})
+# I shouldn't need to add lib 'archive', it should be in ${CONAN_LIBS} and
+# part of the conan recipt. But, its not...
+list(APPEND CONAN_LIBS archive)
 
 ## Gui source files
 file(GLOB GUI_SRC_FILES gui/*.cpp)
@@ -43,9 +46,7 @@ target_link_libraries(langocr Qt5::Widgets ${CONAN_LIBS})
 
 target_compile_options(langocrd PRIVATE -fPIC)
 
-# I shouldn't need to add lib 'archive', it should be in ${CONAN_LIBS} and
-# part of the conan recipt. But, its not...
-target_link_libraries(langocrd ${CONAN_LIBS} archive)
+target_link_libraries(langocrd ${CONAN_LIBS})
 
 add_subdirectory(test)
 #target_link_libraries(langocr_test ${CONAN_LIBS} archive)
