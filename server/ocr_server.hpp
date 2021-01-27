@@ -1,14 +1,24 @@
+/**
+ *   \file ocr_server.hpp
+ *   \brief Describes the OCR Server
+ *
+ *  Detailed description
+ *
+ */
+
 #ifndef _OCRSERVER_OCR_SERVER_H_
 #define _OCRSERVER_OCR_SERVER_H_
 
-namespace ocrserver {
+#include "uwebsocket_server.hpp"
 
 class OcrServer {
  public:
-  OcrServer(void) { return; }
-  ~OcrServer(void) { return; };
+  OcrServer(void);
+  ~OcrServer(void);
   void StartServer();
-};
+ private:
+  Server *server_;
+  ServerConfig *config_;
 };
 
 #endif 

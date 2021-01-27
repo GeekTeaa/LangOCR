@@ -1,0 +1,5 @@
+# sample.toml
+answer  = 42
+pi      = 3.14
+numbers = [1,2,3]
+time    = 1979-05-27T07:32:00Z

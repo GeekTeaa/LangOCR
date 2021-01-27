@@ -1,4 +1,4 @@
-#include <QtWidgets>
+#include <QtWidgets/QtWidgets>
 #include "langocr_app.h"
 
 int main(int argc, char *argv[]) {
